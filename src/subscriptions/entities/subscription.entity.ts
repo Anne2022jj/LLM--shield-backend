@@ -1,3 +1,4 @@
+import { subscription_status } from 'src/common/enums/status.enums';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -19,12 +20,12 @@ export class Subscription {
   @Column()
   plan: string;
 
-  @Column()
-  status: string;
+  @Column({ default: subscription_status.ACTIVE })
+  status: subscription_status;
 
   @CreateDateColumn()
   started_at: Date;
 
-  @Column({ type: 'datetime', nullable: true })
+  @Column({ type: 'timestamp', nullable: true })
   ends_at: Date;
 }

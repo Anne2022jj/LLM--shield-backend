@@ -16,7 +16,7 @@ export class ApiToken {
   @Column()
   token: string;
 
-  @Column({ type: 'datetime' })
+  @Column({ type: 'timestamp' })
   expires_at: Date;
 
   @Column({ default: false })

@@ -1,5 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-import { IsNotEmpty, IsOptional, IsNumber, IsString } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsOptional,
+  IsNumber,
+  IsString,
+  IsEnum,
+} from 'class-validator';
+import { alert_status } from 'src/common/enums/status.enums';
 
 export class CreateAlertDto {
   @IsNumber()
@@ -18,7 +25,7 @@ export class CreateAlertDto {
   @IsNotEmpty()
   message: string;
 
-  @IsString()
+  @IsEnum(alert_status)
   @IsOptional()
-  status?: string;
+  status?: alert_status;
 }

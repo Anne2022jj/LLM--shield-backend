@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsEnum, IsNotEmpty, IsNumber, IsOptional } from 'class-validator';
+import { team_member_role } from 'src/common/enums/status.enums';
 
 export class CreateTeamMemberDto {
   @IsNumber()
@@ -10,7 +11,7 @@ export class CreateTeamMemberDto {
   @IsNotEmpty()
   user_id: number;
 
-  @IsString()
-  @IsNotEmpty()
-  role: string;
+  @IsEnum(team_member_role)
+  @IsOptional()
+  role: team_member_role;
 }

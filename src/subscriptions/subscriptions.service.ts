@@ -10,6 +10,7 @@ import { Repository } from 'typeorm';
 import { Subscription } from './entities/subscription.entity';
 import { CreateSubscriptionDto } from './dto/create-subscription.dto';
 import { UpdateSubscriptionDto } from './dto/update-subscription.dto';
+import { subscription_status } from 'src/common/enums/status.enums';
 
 @Injectable()
 export class SubscriptionsService {
@@ -24,7 +25,7 @@ export class SubscriptionsService {
     const { user_id, tenant_id, plan, status } = createSubscriptionDto;
 
     const existingSub = await this.subscriptionRepository.findOne({
-      where: { user_id, tenant_id, status: 'active' },
+      where: { user_id, tenant_id, status: subscription_status.ACTIVE },
     });
     if (existingSub) {
       throw new ConflictException(

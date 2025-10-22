@@ -1,5 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-import { IsNotEmpty, IsNumber, IsString, IsOptional } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsNumber,
+  IsString,
+  IsOptional,
+  IsEnum,
+} from 'class-validator';
+import { payment_status } from 'src/common/enums/status.enums';
 
 export class CreatePaymentDto {
   @IsNumber()
@@ -14,7 +21,7 @@ export class CreatePaymentDto {
   @IsNotEmpty()
   payment_method: string;
 
-  @IsString()
+  @IsEnum(payment_status)
   @IsOptional()
-  status?: string;
+  status?: payment_status;
 }

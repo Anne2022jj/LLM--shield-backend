@@ -3,9 +3,10 @@ import {
   IsNotEmpty,
   IsNumber,
   IsOptional,
-  IsString,
   IsObject,
+  IsEnum,
 } from 'class-validator';
+import { verdict } from 'src/common/enums/status.enums';
 
 export class CreatePromptAnalysisDto {
   @IsNumber()
@@ -16,9 +17,9 @@ export class CreatePromptAnalysisDto {
   @IsNotEmpty()
   ml_model_id: number;
 
-  @IsString()
+  @IsEnum(verdict)
   @IsNotEmpty()
-  verdict: string;
+  verdict: verdict;
 
   @IsObject()
   @IsOptional()

@@ -1,9 +1,13 @@
 import { Module } from '@nestjs/common';
-import { PromptSService } from './prompt-s.service';
-import { PromptSController } from './prompt-s.controller';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { PromptsService } from './prompt-s.service';
+import { PromptsController } from './prompt-s.controller';
+import { Prompt } from './entities/prompt-.entity';
 
 @Module({
-  controllers: [PromptSController],
-  providers: [PromptSService],
+  imports: [TypeOrmModule.forFeature([Prompt])],
+  controllers: [PromptsController],
+  providers: [PromptsService],
+  exports: [PromptsService],
 })
-export class PromptSModule {}
+export class PromptsModule {}

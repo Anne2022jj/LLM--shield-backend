@@ -1,3 +1,4 @@
+import { alert_status } from 'src/common/enums/status.enums';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -23,8 +24,8 @@ export class Alert {
   @Column()
   message: string;
 
-  @Column({ default: 'pending' })
-  status: string;
+  @Column({ default: alert_status.INVESTIGATING })
+  status: alert_status;
 
   @CreateDateColumn()
   createdAt: Date;

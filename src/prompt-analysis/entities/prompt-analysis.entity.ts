@@ -1,3 +1,4 @@
+import { verdict } from 'src/common/enums/status.enums';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -16,8 +17,8 @@ export class PromptAnalysis {
   @Column()
   ml_model_id: number;
 
-  @Column()
-  verdict: string;
+  @Column({ default: verdict.BENIGN })
+  verdict: verdict;
 
   @Column({ type: 'json', nullable: true })
   details: Record<string, any>;

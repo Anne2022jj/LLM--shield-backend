@@ -1,3 +1,4 @@
+import { payment_status } from 'src/common/enums/status.enums';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -19,8 +20,8 @@ export class Payment {
   @Column()
   payment_method: string;
 
-  @Column()
-  status: string;
+  @Column({ default: payment_status.PENDING })
+  status: payment_status;
 
   @CreateDateColumn()
   transacted_at: Date;
