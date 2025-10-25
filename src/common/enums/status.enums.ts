@@ -32,3 +32,15 @@ export enum verdict {
   MALICIOUS = 'malicious',
   BENIGN = 'benign',
 }
+
+export enum plan_type {
+  PRO = 'pro',
+  PLUS = 'plus',
+  FREE = 'free',
+  BUSINESS = 'business',
+}
+
+export enum pay_method {
+  CARD = 'card',
+  ZAIN_CASH = 'zain_cash',
+}

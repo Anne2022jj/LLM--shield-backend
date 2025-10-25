@@ -1,12 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-import {
-  IsNotEmpty,
-  IsNumber,
-  IsString,
-  IsOptional,
-  IsEnum,
-} from 'class-validator';
-import { subscription_status } from 'src/common/enums/status.enums';
+import { IsNotEmpty, IsNumber, IsOptional, IsEnum } from 'class-validator';
+import { plan_type, subscription_status } from 'src/common/enums/status.enums';
 
 export class CreateSubscriptionDto {
   @IsNumber()
@@ -17,9 +11,9 @@ export class CreateSubscriptionDto {
   @IsNotEmpty()
   tenant_id: number;
 
-  @IsString()
-  @IsNotEmpty()
-  plan: string;
+  @IsEnum(plan_type)
+  @IsOptional()
+  plan: plan_type;
 
   @IsEnum(subscription_status)
   @IsOptional()

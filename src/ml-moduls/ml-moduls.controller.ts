@@ -3,9 +3,9 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
+  Put,
 } from '@nestjs/common';
 import { MlModelsService } from './ml-moduls.service';
 import { CreateMlModelDto } from './dto/create-ml-modul.dto';
@@ -30,7 +30,7 @@ export class MlModulsController {
     return this.mlModulsService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(@Param('id') id: string, @Body() updateMlModulDto: UpdateMlModulDto) {
     return this.mlModulsService.update(+id, updateMlModulDto);
   }

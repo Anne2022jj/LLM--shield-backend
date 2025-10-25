@@ -1,4 +1,4 @@
-import { subscription_status } from 'src/common/enums/status.enums';
+import { plan_type, subscription_status } from 'src/common/enums/status.enums';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -17,8 +17,8 @@ export class Subscription {
   @Column()
   tenant_id: number;
 
-  @Column()
-  plan: string;
+  @Column({ default: plan_type.FREE })
+  plan: plan_type;
 
   @Column({ default: subscription_status.ACTIVE })
   status: subscription_status;

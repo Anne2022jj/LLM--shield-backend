@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import {
   IsNotEmpty,
   IsNumber,
@@ -12,17 +11,21 @@ export class CreateAuditLogDto {
   @IsNotEmpty()
   user_id: number;
 
+  @IsNumber()
+  @IsOptional()
+  team_member_id?: number;
+
   @IsString()
   @IsNotEmpty()
   action: string;
 
-  @IsString()
-  @IsNotEmpty()
-  target_table: string;
-
   @IsNumber()
   @IsOptional()
   target_id?: number;
+
+  @IsString()
+  @IsNotEmpty()
+  target_table: string;
 
   @IsObject()
   @IsOptional()

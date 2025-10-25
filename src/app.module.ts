@@ -16,6 +16,7 @@ import { TeamMembersModule } from './team-members/team-members.module';
 import { TeamsModule } from './teams/teams.module';
 import { TenantsModule } from './tenants/tenants.module';
 import { SubscriptionsModule } from './subscriptions/subscriptions.module';
+import { AlertsModule } from './alerts/alerts.module';
 
 @Module({
   imports: [
@@ -51,6 +52,7 @@ import { SubscriptionsModule } from './subscriptions/subscriptions.module';
     TeamsModule,
     TenantsModule,
     SubscriptionsModule,
+    AlertsModule,
   ],
 })
 export class AppModule {}

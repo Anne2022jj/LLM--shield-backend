@@ -1,4 +1,4 @@
-import { payment_status } from 'src/common/enums/status.enums';
+import { pay_method, payment_status } from 'src/common/enums/status.enums';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -17,8 +17,8 @@ export class Payment {
   @Column('decimal', { precision: 10, scale: 2 })
   amount: number;
 
-  @Column()
-  payment_method: string;
+  @Column({ default: pay_method.CARD })
+  payment_method: pay_method;
 
   @Column({ default: payment_status.PENDING })
   status: payment_status;
